@@ -10,5 +10,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python", "tester.py"]
 # ENTRYPOINT ["pip", "freeze"]
