@@ -52,13 +52,13 @@ class Db:
         return [dict(zip(result.keys(), row)) for row in result]
 
 
-    def get_view(self, view: str) -> list[dict]:
+    def get_all(self, table: str) -> list[dict]:
         '''new function, pushes users to do database stuff on the database side\n
-        all you can do with this is select * from <view/function>'''
+        all you can do with this is select * from <table/view/function>'''
 
-        db_view = Table(view, self.meta, autoload_with=self.engine)
+        table = Table(table, self.meta, autoload_with=self.engine)
 
-        select_query = db_view.select()
+        select_query = table.select()
 
         with self.engine.connect() as connection:
             result = connection.execute(select_query)

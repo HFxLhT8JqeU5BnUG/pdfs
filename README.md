@@ -3,3 +3,7 @@
 To update submodules:
 
 ```git submodule update --recursive --remote```
+
+To take ownership of output directory after running container (if running container as sudo):
+
+```sudo chown -R $USER ./OUTPUT_DIR```

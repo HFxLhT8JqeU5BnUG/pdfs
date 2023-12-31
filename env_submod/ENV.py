@@ -7,14 +7,21 @@ class Env:
     def __init__(self):
         load_dotenv()
 
-    def get(self, credentials: list[str]) -> dict:
+    def get(self, vars: list[str]) -> dict:
         '''pass list of env values to get, returns key-value mapping of env val name : value'''
-        credential_dict = {}
+        var_dict = {}
 
-        for entry in credentials:
+        for entry in vars:
             value = os.environ.get(entry, False)
             assert value, f'ENV value {entry} not found'
 
-            credential_dict[entry] = value
+            var_dict[entry] = value
 
-        return credential_dict
+        return var_dict
+    
+    def get_db_auth(self) -> dict:
+        '''just for ease/standardization of accessing database auth'''
+        
+        db_params = ["USER", "PASSWORD", "HOST", "PORT", "DATABASE"]
+
+        return self.get(db_params)
