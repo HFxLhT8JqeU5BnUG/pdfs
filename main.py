@@ -5,10 +5,11 @@ from prod_pdfs.central import pdf_dict
 
 parser = argparse.ArgumentParser(description='Welcome to the PDF thing')
 
-parser.add_argument('-t', '--test', help='Run tests', default=False)
-parser.add_argument('-m', '--module', help='Specify module to run', default=False)
+parser.add_argument('-t', '--test', help='Run tests', default=False, choices=test_dict.keys())
+parser.add_argument('-m', '--module', help='Specify module to run', default=False, choices=pdf_dict.keys())
 
 args = parser.parse_args()
+
 
 if args.test:
     assert test_dict.get(args.test, False), f'Test {args.test} not found'
