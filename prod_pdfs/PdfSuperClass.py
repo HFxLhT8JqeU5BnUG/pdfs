@@ -12,6 +12,7 @@ class PdfSuperClass:
         self.env_interface = Env()
         DB_AUTH = self.env_interface.get_db_auth()
         self.db_interface = Db(RDBMS='postgres', AUTH = DB_AUTH)
+        self.schema = None
 
         self.attrs = ["table", "template"]
         
@@ -31,7 +32,8 @@ class PdfSuperClass:
 
     
     def initialize(self) -> bool:
-    # def initialize(self, table: str, template: str, mapping: dict = None, naming: dict = None) -> bool:
+    # def initialize(self, table: str, template: str, schema: str = None, mapping: dict = None, naming: dict = None) -> bool:
+        # self.schema = schema
         # self.table = table
         # self.template = template
         # self.pdf_mapping = mapping
@@ -41,9 +43,10 @@ class PdfSuperClass:
 
 
     def generate(self):
-        self.rows = self.db_interface.get_all(self.table)
+        self.rows = self.db_interface.get_all(self.table, self.schema)
         self.transform()
         self.pdf_interface.write(rows = self.rows, map = self.mapping, naming = self.naming)
+
 
     def transform(self):
         pass

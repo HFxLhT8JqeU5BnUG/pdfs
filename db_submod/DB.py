@@ -52,11 +52,11 @@ class Db:
         return [dict(zip(result.keys(), row)) for row in result]
 
 
-    def get_all(self, table: str) -> list[dict]:
+    def get_all(self, table: str, schema: str = None) -> list[dict]:
         '''new function, pushes users to do database stuff on the database side\n
         all you can do with this is select * from <table/view/function>'''
 
-        table = Table(table, self.meta, autoload_with=self.engine)
+        table = Table(table, self.meta, autoload_with=self.engine, schema=schema)
 
         select_query = table.select()
 

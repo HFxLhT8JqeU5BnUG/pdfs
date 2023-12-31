@@ -12,11 +12,11 @@ args = parser.parse_args()
 
 if args.test:
     assert test_dict.get(args.test, False), f'Test {args.test} not found'
-    function_to_call = test_dict.get(args.test)
+    caller = test_dict.get(args.test)
 
 elif args.module:
     assert pdf_dict.get(args.module, False), f'Module {args.module} not found'
-    function_to_call = pdf_dict.get(args.module)
+    caller = pdf_dict.get(args.module)
 
 
-function_to_call()
+caller()

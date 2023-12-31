@@ -30,7 +30,7 @@ class Pdf:
         dynamic_name_key = naming.get('dynamic_name_key', '')
 
         for row in data:
-            print(row)
+            # print(row)
             writer = PdfWriter()
             page = self.reader.pages[0]
 
@@ -41,7 +41,7 @@ class Pdf:
             )
 
             output_file_name = f"{self.output_dir}{static_name}_{row.get(dynamic_name_key, '')}.pdf"
-            print(output_file_name)
+            # print(output_file_name)
 
             with open(output_file_name, "wb") as output_stream:
                 writer.write(output_stream)
