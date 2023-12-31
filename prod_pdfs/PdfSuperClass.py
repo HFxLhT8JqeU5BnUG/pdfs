@@ -5,7 +5,7 @@ from pdf.PDF import Pdf
 
 class PdfSuperClass:
     '''superclass for generating PDFs\n
-    pass table/view and template file name (including .pdf extension)\n
+    pass table/view and template file name (including .pdf extension) in overwritten initialize()\n
     mapping and naming are optional. naming is HIGHLY recommended, mapping is not'''
 
     def __init__(self):
@@ -32,6 +32,7 @@ class PdfSuperClass:
 
     
     def initialize(self) -> bool:
+        '''MUST be overwritten. set template, schema, table/view, mapping, naming here'''
     # def initialize(self, table: str, template: str, schema: str = None, mapping: dict = None, naming: dict = None) -> bool:
         # self.schema = schema
         # self.table = table
@@ -43,10 +44,12 @@ class PdfSuperClass:
 
 
     def generate(self):
+        '''get DB data, apply transformation, write PDFs'''
         self.rows = self.db_interface.get_all(self.table, self.schema)
         self.transform()
         self.pdf_interface.write(rows = self.rows, map = self.mapping, naming = self.naming)
 
 
     def transform(self):
+        '''Optional. Transform data here if desired. You're accessing self.rows (list[dict[str, Any]]) before mapping is applied.'''
         pass

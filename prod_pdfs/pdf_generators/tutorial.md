@@ -16,6 +16,8 @@ Now you're ready to write the class that will generate the PDFs. Put it in this 
 
 If you chose a mapping and/or naming config, assign them in the initialize function with table and template. 
 
+If you're not applying a mapping, the data will be passed as it is gathered from the database (after transformations, if applicable). Extra columns don't break the program, but will be disregarded when PDFs are generated.
+
 After you've set the attributes, make sure that initialize() returns True.
 
 Optionally, you can override the transform() function. This will perform any kind of Python transformations you'd like to the rows from the database BEFORE applying the mapping. What this means:
