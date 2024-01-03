@@ -1,6 +1,6 @@
-from db_submod.DB import Db
-from env_submod.ENV import Env
-from pdf.PDF import Pdf
+from etb_db.DB import Db
+from etb_env.ENV import Env
+from etb_pdf.PDF import Pdf
 from .configs.db_pdf_test_conf import pdf_mapping, pdf_naming
 
 

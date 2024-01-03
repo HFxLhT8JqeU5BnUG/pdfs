@@ -4,7 +4,7 @@ This is a guide on how to get values from a database and generate a filled out P
 
 First, make sure you have a .env file with the template directory, PDF output directory, and database authentication. It should follow the format of the .env.example file.
 
-Next, get your PDF form template and put it in the template directory. You'll need to know the form fields that you're trying to fill out. If you don't, you can uncomment the following line from pdf.PDF: ```print(self.reader.get_form_text_fields())```
+Next, get your PDF form template and put it in the template directory. You'll need to know the form fields that you're trying to fill out. If you don't, you can uncomment the following line from etb_pdf.PDF: ```print(self.reader.get_form_text_fields())```
 
 Next, write a view for the database, execute it, and place it in the SQL directory. Not absolutely necessary, but highly recommended.
 

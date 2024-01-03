@@ -4,3 +4,7 @@ SQLAlchemy==2.0.24
 python-dotenv==1.0.0
 
 PyPDF2==3.0.1
+
+etb-db==0.1.0
+etb-env==0.2.0
+etb-pdf==0.1.0

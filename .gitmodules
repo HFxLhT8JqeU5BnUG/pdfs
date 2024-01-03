@@ -1,6 +1,0 @@
-[submodule "db_submod"]
-	path = db_submod
-	url = https://github.com/HFxLhT8JqeU5BnUG/db_submod.git
-[submodule "env_submod"]
-	path = env_submod
-	url = https://github.com/HFxLhT8JqeU5BnUG/env_submod.git

@@ -1,5 +1,5 @@
-from db_submod.DB import Db
-from env_submod.ENV import Env
+from etb_db.DB import Db
+from etb_env.ENV import Env
 
 def example_table():
     env_interface = Env()

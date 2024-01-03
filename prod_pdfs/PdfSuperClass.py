@@ -1,6 +1,8 @@
-from db_submod.DB import Db
-from env_submod.ENV import Env
-from pdf.PDF import Pdf
+from etb_db.DB import Db
+from etb_env.ENV import Env
+from etb_pdf.PDF import Pdf
+
+import os
 
 
 class PdfSuperClass:
@@ -9,7 +11,7 @@ class PdfSuperClass:
     mapping and naming are optional. naming is HIGHLY recommended, mapping is not'''
 
     def __init__(self):
-        self.env_interface = Env()
+        self.env_interface = Env('/app/.env')
         DB_AUTH = self.env_interface.get_db_auth()
         self.db_interface = Db(RDBMS='postgres', AUTH = DB_AUTH)
         self.schema = None

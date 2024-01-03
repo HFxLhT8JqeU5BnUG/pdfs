@@ -1,6 +1,5 @@
-from pdf.PDF import Pdf
-# from db_submod.DB import Db
-from env_submod.ENV import Env
+from etb_pdf.PDF import Pdf
+from etb_env.ENV import Env
 
 def pdf_test():
     env_interface = Env()
